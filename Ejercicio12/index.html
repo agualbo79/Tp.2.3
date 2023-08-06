@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ChatBox Moderno</title>
+    <title>ChatBox </title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-image: url("wave-haikei.svg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f2f5;
             margin: 0;
             padding: 0;
             color: #333;
@@ -17,9 +14,12 @@
         #chat-container {
             position: fixed;
             bottom: 0;
-            width: 100%;
-            max-width: 600px;
+            left: 0;
+            width: 300px;
+            max-height: 400px;
             padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
         }
 
         #chat {
@@ -31,43 +31,41 @@
         }
 
         #chat li {
-            background-color: #f0f0f0;
+            background-color: #e9ebee;
             padding: 10px;
             margin-bottom: 10px;
-            border-radius: 5px;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         #mensaje {
-            width: 100%;
+            width: calc(100% - 70px);
             box-sizing: border-box;
             padding: 10px;
             font-size: 16px;
             border: none;
-            border-bottom: 2px solid #3498db;
+            border-radius: 20px;
+            background-color: #f5f6f7;
+            color: #333;
             outline: none;
         }
 
         #enviar {
-            background-color: #3498db;
-            color: #fff;
+            background-color: #0084ff;
+            color: #ffffff;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #enviar:hover {
-            background-color: #2980b9;
+            border-radius: 20px;
+            cursor:pointer; 
         }
     </style>
 </head>
 <body>
     <div id="chat-container">
-        <h1>ChatBox </h1>
+        <h1>Chat </h1>
         <ul id="chat"></ul>
-        <input type="text" id="mensaje" placeholder="Mensaje..." onkeydown="enviarConEnter(event)">
+        <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquI..." onkeydown="enviarConEnter(event)">
         <button id="enviar" onclick="enviarMensaje()">Enviar</button>
     </div>
     <script src="12.js"></script>
