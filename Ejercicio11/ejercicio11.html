@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Moderno</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="date"],
+        input[type="time"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calendario</h1>
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" onchange="mostrarEventos(this.value)">
+    <ul id="lista-eventos"></ul>
+    <h2>Agregar evento</h2>
+    <form id="formulario-evento">
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora">
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" rows="4"></textarea>
+        <input type="submit" value="Agregar">
+    </form>
+    <script src="11.js"></script>
+    <script>
+        let formularioEvento = document.getElementById("formulario-evento");
+        formularioEvento.addEventListener("submit", function(event) {
+            event.preventDefault();
+            let fecha = document.getElementById("fecha").value;
+            let hora = document.getElementById("hora").value;
+            let descripcion = document.getElementById("descripcion").value;
+            if (eventos.hasOwnProperty(fecha)) {
+                eventos[fecha].push({hora: hora, descripcion: descripcion});
+            } else {
+                eventos[fecha] = [{hora: hora, descripcion: descripcion}];
+            }
+            mostrarEventos(fecha);
+        });
+    </script>
+</body>
+</html>
